@@ -26,7 +26,7 @@ public class RotationController : MonoBehaviour
 		if (CanRotate)
 		{
 			_rotationVector.y = (_rotatingObjectModel.ObjectRotationSpeed * _sideSelector);
-			_rotationVectorForCamera.y = (_rotatingObjectModel.CameraRotationSpeed * _sideSelector);
+			_rotationVectorForCamera.y = (_rotatingObjectModel.CameraRotationSpeed * _sideSelector );
 
 			_rotatingObjectModel.RotateObject(_rotationVector);
 			_rotatingObjectModel.RotateCamera(_rotationVectorForCamera);
