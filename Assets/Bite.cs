@@ -11,7 +11,7 @@ public class Bite : MonoBehaviour
 	private MainGameController _gameController;
 	private Transform _transform;
 	private InputController _inputController;
-	private RotateAroundCylindr _rotateScript;
+	private RotationController _rotateScript;
 	private Vector3 _biteVector;
 	private float _startZPosition;
 	private float _sideSelector = 1;
@@ -27,7 +27,7 @@ public class Bite : MonoBehaviour
 		_startZPosition = transform.localPosition.z;
 		_inputController = FindObjectOfType<InputController>();
 		_biteVector = new Vector3();
-		_rotateScript = FindObjectOfType<RotateAroundCylindr>();
+		_rotateScript = FindObjectOfType<RotationController>();
 	}
 	private void FixedUpdate()
 	{

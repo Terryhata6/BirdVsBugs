@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class MainGameController : MonoBehaviour
 {
-    private RotateAroundCylindr _rotator;
+    private RotationController _rotator;
     public int[] BugsOnLvl;
     public Slider PowerSlider;
     private int _currentLvl = 0;
@@ -12,7 +12,7 @@ public class MainGameController : MonoBehaviour
 
     private void Start()
     {
-        _rotator = FindObjectOfType<RotateAroundCylindr>();
+        _rotator = FindObjectOfType<RotationController>();
     }
     public void EatBug()
     {
