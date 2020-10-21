@@ -4,7 +4,8 @@ using UnityEngine.UI;
 
 public class MainGameController : MonoBehaviour
 {
-    private RotationController _rotator;
+    private RotationController _rotationController;
+    private MovingUpController _movingUpController;
     public int[] BugsOnLvl;
     public Slider PowerSlider;
     private int _currentLvl = 0;
@@ -12,7 +13,8 @@ public class MainGameController : MonoBehaviour
 
     private void Start()
     {
-        _rotator = FindObjectOfType<RotationController>();
+        _rotationController = FindObjectOfType<RotationController>();
+        _movingUpController = FindObjectOfType<MovingUpController>();
     }
     public void EatBug()
     {
@@ -20,9 +22,9 @@ public class MainGameController : MonoBehaviour
         if(BugsOnLvl[_currentLvl] <= 0)
         {
             _currentLvl++;
-            _rotator.MoveUp();
+            _movingUpController.MoveObjectsUp();
         }
-        BirdPower += 20;
+        BirdPower += 15;
         if(BirdPower > 50)
         {
             BirdPower = 50;
@@ -34,7 +36,7 @@ public class MainGameController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        BirdPower -= Time.deltaTime * 2f;
+        BirdPower -= Time.deltaTime * 4f;
         PowerSlider.value = BirdPower / 50;
         if(BirdPower <= 0)
         {
