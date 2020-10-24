@@ -668,7 +668,6 @@ GameObject:
   - component: {fileID: 7346841548751573340}
   - component: {fileID: 2346249754337100186}
   - component: {fileID: 2346249754337100185}
-  - component: {fileID: 2346249754337100183}
   m_Layer: 0
   m_Name: flying_default_new
   m_TagString: Untagged
@@ -721,27 +720,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.24807763, y: 0.29854107, z: 0.44496453}
   m_Center: {x: 0.04347253, y: 0.765913, z: 0.40437537}
---- !u!114 &2346249754337100183
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6029863253448713039}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4b2ea3382e014e4994bbeb0421fc814, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DistanceOfBiting: 1
-  SpeedOfBiting: 0.5
-  StartOfRaycast: {fileID: 0}
-  EndOfRaycast: {fileID: 0}
-  BugsLayer:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  _canBiteAgain: 1
-  _isBiting: 0
 --- !u!1 &6189345520761512380
 GameObject:
   m_ObjectHideFlags: 0
