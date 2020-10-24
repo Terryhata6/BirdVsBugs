@@ -51,10 +51,4 @@ public class RotationController : MonoBehaviour
 			_sideSelector *= -1;
 		}
 	}
-
-	public void MoveUp()
-	{
-		_rotatingObjectModel.RotatingObjectTransform.position += new Vector3(0, 1.5f, 0);
-		_rotatingObjectModel.CameraTransform.position += new Vector3(0, 1.5f, 0);
-	}
 }
