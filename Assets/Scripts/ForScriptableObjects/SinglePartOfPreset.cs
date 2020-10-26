@@ -3,5 +3,5 @@
 [Serializable]
 public class SinglePartOfPreset 
 {
-    public int[] PositionOfBug;
+    public SingleBug[] SingleBugPreset;
 }
