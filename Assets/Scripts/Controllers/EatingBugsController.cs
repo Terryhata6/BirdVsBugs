@@ -7,7 +7,6 @@ public class EatingBugsController : MonoBehaviour
     private MovingUpController _movingUpController;
     private EatingModel _eatingModel;
     private MovingUpObjects _movingUpObjects;
-    private RotatingObject _rotatingObject;
     private InputController _inputController;
     public int[] BugsOnLvl;
     public Slider PowerSlider;
@@ -20,7 +19,6 @@ public class EatingBugsController : MonoBehaviour
         _movingUpObjects = FindObjectOfType<MovingUpObjects>();
         _movingUpController = FindObjectOfType<MovingUpController>();
         _inputController = FindObjectOfType<InputController>();
-        _rotatingObject = FindObjectOfType<RotatingObject>();
     }
     private void Start()
     {
@@ -31,7 +29,6 @@ public class EatingBugsController : MonoBehaviour
         if (_inputController.DragingStarted && !_eatingModel.IsBiting && _eatingModel.СanBiteAgain)
         {
             EatNothing();
-            //_rotatingObject.CanRotate = false;
             _eatingModel.IsBiting = true;
             _eatingModel.СanBiteAgain = false;
         }
@@ -70,6 +67,10 @@ public class EatingBugsController : MonoBehaviour
             BirdPower = 50;
         }
     }
+    public void EatSomething()
+    {
+        BirdPower += 10;
+    } 
     public void EatNothing()
     {
         BirdPower -= 10;
