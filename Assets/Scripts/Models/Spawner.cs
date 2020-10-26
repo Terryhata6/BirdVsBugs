@@ -2,9 +2,10 @@
 
 public class Spawner : MonoBehaviour
 {
-	public GameObject BugPrefab;
+	public GameObject[] BugPrefabs;
 	public BugsPreset[] LvlPresets;
 	public float StartYPostion;
+	public float SpaceBetweenLines;
 	public int AmountOfPresets;
 	public bool NeedToSpawnPreset;
 	public Vector3[] PositonOfBugs;
@@ -12,6 +13,7 @@ public class Spawner : MonoBehaviour
 
 	private int[] _bugsOnLvl;
 	private int _linesWrited;
+	private int _nonBugsOnLine;
 
 	public int[] SpawnBugsFromPreset()
 	{
@@ -20,19 +22,28 @@ public class Spawner : MonoBehaviour
 		{
 			BugsPreset Preset = LvlPresets[Random.Range(0, LvlPresets.Length)];
 			int[] Temp = new int[Preset.PartsOfPreset.Length];
-			
 			for (int j = 0; j < Preset.PartsOfPreset.Length; j++)
 			{
-				for (int k = 0; k < Preset.PartsOfPreset[j].PositionOfBug.Length; k++)
+				_nonBugsOnLine = 0;
+				for (int k = 0; k < Preset.PartsOfPreset[j].SingleBugPreset.Length; k++)
 				{
-					Temp[j] = Preset.PartsOfPreset[j].PositionOfBug.Length;
-					Vector3 PositionOfBug = PositonOfBugs[Preset.PartsOfPreset[j].PositionOfBug[k]];
-					PositionOfBug.y = StartYPostion;
-					GameObject Bug = Instantiate(BugPrefab, PositionOfBug, Quaternion.identity);
-					Bug.transform.Rotate(new Vector3(0, RotationOfBugs[Preset.PartsOfPreset[j].PositionOfBug[k]], 0));
+					if (Preset.PartsOfPreset[j].SingleBugPreset[k].NumberOfBug == 2)
+					{
+						_nonBugsOnLine++;
+					}
 				}
-				StartYPostion += 1.5f;
+				for (int k = 0; k < Preset.PartsOfPreset[j].SingleBugPreset.Length; k++)
+				{
+					Temp[j] = Preset.PartsOfPreset[j].SingleBugPreset.Length - _nonBugsOnLine;
+					Vector3 PositionOfBug = PositonOfBugs[Preset.PartsOfPreset[j].SingleBugPreset[k].PositionOfBug];
+					PositionOfBug.y = StartYPostion;
+					GameObject Bug = Instantiate(BugPrefabs[Preset.PartsOfPreset[j].SingleBugPreset[k].NumberOfBug], PositionOfBug, Quaternion.identity);
+					Bug.transform.Rotate(new Vector3(0, RotationOfBugs[Preset.PartsOfPreset[j].SingleBugPreset[k].PositionOfBug], 0));
+				}
+				StartYPostion += SpaceBetweenLines;
 			}
+
+
 			int[] BugsWrited = new int[_bugsOnLvl.Length]; 
 			for (int j = 0; j < _bugsOnLvl.Length; j++)
 			{
@@ -41,7 +52,7 @@ public class Spawner : MonoBehaviour
 			_bugsOnLvl = new int[BugsWrited.Length + Temp.Length];
 			for (int j = 0; j < BugsWrited.Length; j++)
 			{
-				_bugsOnLvl[j] = BugsWrited[j];
+				_bugsOnLvl[j] = BugsWrited[j] ;
 			}
 			for (int j = 0; j < Temp.Length; j++)
 			{
