@@ -51,7 +51,7 @@ public class EatingBugsController : MonoBehaviour
     public void EatBug(GameObject BugObject)
     {
         Destroy(BugObject);
-        if(BugsOnLvl.Length - _currentLvl == 10)
+        if(BugsOnLvl.Length - _currentLvl == 9)
         {
             _movingUpObjects.NeedToMoveOnlyCharacter = true;
         }
