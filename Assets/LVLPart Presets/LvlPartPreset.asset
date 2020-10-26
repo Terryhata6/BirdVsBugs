@@ -13,8 +13,58 @@ MonoBehaviour:
   m_Name: LvlPartPreset
   m_EditorClassIdentifier: 
   PartsOfPreset:
-  - PositionOfBug: 01000000020000000300000004000000050000000600000007000000
-  - PositionOfBug: 
-  - PositionOfBug: 
-  - PositionOfBug: 
-  - PositionOfBug: 
+  - SingleBugPreset:
+    - PositionOfBug: 0
+      NumberOfBug: 0
+    - PositionOfBug: 1
+      NumberOfBug: 0
+    - PositionOfBug: 2
+      NumberOfBug: 0
+    - PositionOfBug: 3
+      NumberOfBug: 0
+    - PositionOfBug: 4
+      NumberOfBug: 0
+  - SingleBugPreset:
+    - PositionOfBug: 0
+      NumberOfBug: 0
+    - PositionOfBug: 1
+      NumberOfBug: 0
+    - PositionOfBug: 2
+      NumberOfBug: 0
+    - PositionOfBug: 3
+      NumberOfBug: 0
+    - PositionOfBug: 4
+      NumberOfBug: 0
+  - SingleBugPreset:
+    - PositionOfBug: 0
+      NumberOfBug: 0
+    - PositionOfBug: 1
+      NumberOfBug: 0
+    - PositionOfBug: 2
+      NumberOfBug: 0
+    - PositionOfBug: 3
+      NumberOfBug: 0
+    - PositionOfBug: 4
+      NumberOfBug: 0
+  - SingleBugPreset:
+    - PositionOfBug: 0
+      NumberOfBug: 0
+    - PositionOfBug: 1
+      NumberOfBug: 0
+    - PositionOfBug: 2
+      NumberOfBug: 0
+    - PositionOfBug: 3
+      NumberOfBug: 0
+    - PositionOfBug: 4
+      NumberOfBug: 0
+  - SingleBugPreset:
+    - PositionOfBug: 0
+      NumberOfBug: 0
+    - PositionOfBug: 1
+      NumberOfBug: 0
+    - PositionOfBug: 2
+      NumberOfBug: 0
+    - PositionOfBug: 3
+      NumberOfBug: 0
+    - PositionOfBug: 4
+      NumberOfBug: 0
