@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 263417316992022459}
   - component: {fileID: 5301221851963221730}
-  - component: {fileID: 5115988253685929576}
+  - component: {fileID: -5331110348406995901}
   m_Layer: 0
-  m_Name: Mushroom Prefab
+  m_Name: Frozen Snail Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,7 +46,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.29, y: 0.5, z: 0.4}
   m_Center: {x: 0.06, y: 0.2, z: -0.1}
---- !u!114 &5115988253685929576
+--- !u!114 &-5331110348406995901
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -55,7 +55,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2031584509516450752}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ba6ea16636248e4095794d94a652fea, type: 3}
+  m_Script: {fileID: 11500000, guid: 599b61f9f545dcb448192ee0fc408929, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &7620897630103751675
@@ -125,6 +125,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 0a28b9927f648274f820089f5890a54e, type: 2}
+    - target: {fileID: -1504981713932161579, guid: 71fb8517b02b55049bf4566ab557c248,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3ac7a87cc50d51e418f32bc718759882, type: 2}
     - target: {fileID: -927199367670048503, guid: 71fb8517b02b55049bf4566ab557c248,
         type: 3}
       propertyPath: m_Name
