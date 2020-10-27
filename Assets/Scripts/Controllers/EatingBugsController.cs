@@ -1,17 +1,18 @@
 ﻿using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class EatingBugsController : MonoBehaviour
 {
+    public float WaitTimeBeforeCheckingCollisionWithTree;
+    public int[] BugsOnLvl;
+
     private MovingUpController _movingUpController;
     private EatingModel _eatingModel;
     private MovingUpObjects _movingUpObjects;
     private InputController _inputController;
-    public int[] BugsOnLvl;
-    public Slider PowerSlider;
+    private StaminaSlider _staminaSlider;
+    private AnimatorsModel _animatorsModel;
     private int _currentLvl = 0;
-    private float BirdPower = 50;
+    private bool _nothingWasEaten = true;
 
     private void Awake()
     {
@@ -19,6 +20,8 @@ public class EatingBugsController : MonoBehaviour
         _movingUpObjects = FindObjectOfType<MovingUpObjects>();
         _movingUpController = FindObjectOfType<MovingUpController>();
         _inputController = FindObjectOfType<InputController>();
+        _staminaSlider = FindObjectOfType<StaminaSlider>();
+        _animatorsModel = FindObjectOfType<AnimatorsModel>();
     }
     private void Start()
     {
@@ -28,9 +31,11 @@ public class EatingBugsController : MonoBehaviour
     {
         if (_inputController.DragingStarted && !_eatingModel.IsBiting && _eatingModel.СanBiteAgain)
         {
-            EatNothing();
+            _nothingWasEaten = true;
             _eatingModel.IsBiting = true;
             _eatingModel.СanBiteAgain = false;
+            _animatorsModel.MakeBiteAnimation();
+            Invoke("ReduceStamina", WaitTimeBeforeCheckingCollisionWithTree);
         }
         if (!_inputController.DragingStarted && !_eatingModel.СanBiteAgain)
         {
@@ -40,18 +45,12 @@ public class EatingBugsController : MonoBehaviour
         {
             _eatingModel.MakeBite();
         }
-
-        BirdPower -= Time.deltaTime * 4f;
-        PowerSlider.value = BirdPower / 50;
-        if (BirdPower <= 0)
-        {
-            RestartLvl();
-        }
     }
     public void EatBug(GameObject BugObject)
     {
-        Destroy(BugObject);
-        if(BugsOnLvl.Length - _currentLvl == 10)
+        Destroy(BugObject); 
+        _nothingWasEaten = false;
+        if (BugsOnLvl.Length - _currentLvl == 9)
         {
             _movingUpObjects.NeedToMoveOnlyCharacter = true;
         }
@@ -61,22 +60,18 @@ public class EatingBugsController : MonoBehaviour
             _currentLvl++;
             _movingUpController.MoveObjectsUp();
         }
-        BirdPower += 15;
-        if(BirdPower > 50)
-        {
-            BirdPower = 50;
-        }
+        _staminaSlider.IncreaseStaminaByNum(_eatingModel.EnergyBySingleBug);
     }
     public void EatSomething()
     {
-        BirdPower += 10;
-    } 
-    public void EatNothing()
-    {
-        BirdPower -= 10;
-    } 
-    private void RestartLvl()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        _nothingWasEaten = false;
     }
+    private void ReduceStamina()
+    {
+        if (_nothingWasEaten)
+        {
+            _staminaSlider.ReduceStaminaByNum(10);
+            _nothingWasEaten = false;
+        }
+    } 
 }
