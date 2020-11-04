@@ -8,13 +8,6 @@ public class MovingUpController : MonoBehaviour
     {
         _movingUpModel = FindObjectOfType<MovingUpObjects>();
     }
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            _movingUpModel.MoveObjectsUp();
-        }
-    }
     public void MoveObjectsUp()
     {
         _movingUpModel.MoveObjectsUp();
