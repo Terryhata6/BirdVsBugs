@@ -11556,7 +11556,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DistanceOfBiting: 1.5
   SpeedOfBiting: 0.5
-  EnergyBySingleBug: 5
+  EnergyBySingleBug: 6
   ColliderTransform: {fileID: 989337464}
   _sideSelector: 1
   "\u0421anBiteAgain": 1
@@ -11576,7 +11576,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PowerSlider: {fileID: 1408428124}
   BirdPower: 50
-  StaminaOffPower: 3
+  StaminaOffPower: 5
   StaminaOffMultiplyer: 1
 --- !u!114 &1785227460
 MonoBehaviour:
@@ -11591,7 +11591,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TimeOfFrozen: 1
-  MultiplyerOfFrozen: 0.5
+  MultiplyerOfFrozen: 0.1
   TimeOfPoisoned: 1
   MultiplyerOfPoisoned: 2
 --- !u!114 &1785227461
