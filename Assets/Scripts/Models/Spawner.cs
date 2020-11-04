@@ -27,7 +27,7 @@ public class Spawner : MonoBehaviour
 				_nonBugsOnLine = 0;
 				for (int k = 0; k < Preset.PartsOfPreset[j].SingleBugPreset.Length; k++)
 				{
-					if (Preset.PartsOfPreset[j].SingleBugPreset[k].NumberOfBug == 2)
+					if (Preset.PartsOfPreset[j].SingleBugPreset[k].NumberOfBug == 3 || Preset.PartsOfPreset[j].SingleBugPreset[k].NumberOfBug == 2)
 					{
 						_nonBugsOnLine++;
 					}

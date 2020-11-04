@@ -95,7 +95,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 587ccaaec73bb004dbe0c56ab1a4ae0a, type: 2}
+      objectReference: {fileID: 2100000, guid: 26cfa39f71eedd64bbcd09acfe4bb1d2, type: 2}
     - target: {fileID: -4464176994788972096, guid: d95be6cba17ac684faaf65d9bd657d54,
         type: 3}
       propertyPath: m_Materials.Array.data[1]
@@ -195,7 +195,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: d95be6cba17ac684faaf65d9bd657d54,
         type: 3}
       propertyPath: m_Name
-      value: ZHUK_1Mesh
+      value: Bug With Shield
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: d95be6cba17ac684faaf65d9bd657d54,
         type: 3}

@@ -6,14 +6,17 @@ public class RotationController : MonoBehaviour
 	private Vector3 _rotationVector;
 	private Vector3 _rotationVectorForCamera;
 	private float _sideSelector = 1;
+	private float _rotationSpeedMultiplyer = 1f;
 	public bool CanRotate;
 
 	//модель которой управляем 
 	private RotatingObject _rotatingObjectModel;
+	private EnemyEffects _enemyeffects;
 
 	private void Awake()
 	{
 		_rotatingObjectModel = FindObjectOfType<RotatingObject>();
+		_enemyeffects = FindObjectOfType<EnemyEffects>();
 	}
 	private void Start()
 	{
@@ -25,8 +28,8 @@ public class RotationController : MonoBehaviour
 	{
 		if (CanRotate)
 		{
-			_rotationVector.y = (_rotatingObjectModel.ObjectRotationSpeed * _sideSelector);
-			_rotationVectorForCamera.y = (_rotatingObjectModel.CameraRotationSpeed * _sideSelector );
+			_rotationVector.y = (_rotatingObjectModel.ObjectRotationSpeed * _rotationSpeedMultiplyer * _sideSelector);
+			_rotationVectorForCamera.y = (_rotatingObjectModel.CameraRotationSpeed * _rotationSpeedMultiplyer * _sideSelector );
 
 			_rotatingObjectModel.RotateObject(_rotationVector);
 			_rotatingObjectModel.RotateCamera(_rotationVectorForCamera);
@@ -50,5 +53,14 @@ public class RotationController : MonoBehaviour
 		{
 			_sideSelector *= -1;
 		}
+	}
+	public void MakeRotationGoSlower()
+	{
+		_rotationSpeedMultiplyer = _enemyeffects.MultiplyerOfFrozen;
+		Invoke("MakeRotationGoFaster", _enemyeffects.TimeOfFrozen);
+	}
+	public void MakeRotationGoFaster()
+	{
+		_rotationSpeedMultiplyer = 1;
 	}
 }
