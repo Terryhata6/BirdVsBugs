@@ -75,7 +75,7 @@ public class EatingBugsController : MonoBehaviour
 		}
 		if (BugsOnLvl.Length - _currentLvl == 0)
 		{
-			_bossModel.StartBossBattle();
+			_bossModel.NeedToStartBossBattle = true;
 		}
 		_staminaSlider.IncreaseStaminaByNum(_eatingModel.EnergyBySingleBug);
 	}

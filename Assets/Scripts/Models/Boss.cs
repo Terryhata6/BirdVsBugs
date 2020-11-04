@@ -3,11 +3,13 @@
 public class Boss : MonoBehaviour
 {
 	public BossVariant[] BossesVariants;
+	public float RotationSpeedMyltiplyerForBossBattle;
 	public float StaminaMyltiplyerForBossBattle;
+	public bool NeedToStartBossBattle;
 	public bool IsBossFightNow;
 
 	private GameObject _bossModel;
-	[SerializeField] private Animator _bossAnimator;
+	private Animator _bossAnimator;
 	private string[] _bossesTriggerManager;
 
 
@@ -24,12 +26,6 @@ public class Boss : MonoBehaviour
 		_bossesTriggerManager[0] = "Damage1";
 		_bossesTriggerManager[1] = "Damage2";
 		_bossesTriggerManager[2] = "Damage3";
-	}
-	public void StartBossBattle()
-	{
-		StaminaSlider _staminaSlider = FindObjectOfType<StaminaSlider>();
-		_staminaSlider.StaminaOffMultiplyer = StaminaMyltiplyerForBossBattle;
-		IsBossFightNow = true;
 	}
 	public void BossGetDamage()
 	{
