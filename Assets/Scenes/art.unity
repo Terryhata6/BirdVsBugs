@@ -8077,7 +8077,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AllMovingUpObjects: {fileID: 1160668043}
-  AllBugs: {fileID: 0}
   CharacterTransform: {fileID: 618349614}
   CameraTransform: {fileID: 563902654}
   TreeMaterial: {fileID: 2100000, guid: 9c95a7e06e9f42045bdb3bf12731b8f9, type: 2}
@@ -8207,7 +8206,7 @@ MonoBehaviour:
   - Boss3DModel: {fileID: 1135135512}
   - Boss3DModel: {fileID: 2045684682}
   - Boss3DModel: {fileID: 2121411907}
-  RotationSpeedMyltiplyerForBossBattle: 0
+  RotationSpeedMyltiplyerForBossBattle: 1
   StaminaMyltiplyerForBossBattle: 4
   NeedToStartBossBattle: 0
   IsBossFightNow: 0
@@ -8237,10 +8236,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e7c1775a1b55d047a183f7389d92495, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DeathSimpleBug: {fileID: 0}
-  DeathShieldBug: {fileID: 0}
-  DeathAcidMushroom: {fileID: 0}
-  DeathFrozenMushroom: {fileID: 0}
+  DeathSimpleBug: {fileID: 5012261732515022833, guid: 5a12092409888cb4386c887843a4332e,
+    type: 3}
+  DeathShieldBug: {fileID: 5012261732515022833, guid: 5a12092409888cb4386c887843a4332e,
+    type: 3}
+  DeathAcidMushroom: {fileID: 5012261732515022833, guid: 5a12092409888cb4386c887843a4332e,
+    type: 3}
+  DeathFrozenMushroom: {fileID: 5012261732515022833, guid: 5a12092409888cb4386c887843a4332e,
+    type: 3}
 --- !u!1001 &1794101521
 PrefabInstance:
   m_ObjectHideFlags: 0
