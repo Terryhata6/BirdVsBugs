@@ -8,6 +8,19 @@ public class StartGameMenu : BaseMenu
     [Header("Tap to start button")]
     [SerializeField] private ButtonUI _tapToStart;
 
+    private UIController _uiController;
+
+
+    private void Start()
+    {
+        _uiController = FindObjectOfType<UIController>();
+
+        _tapToStart.GetControl.onClick.AddListener(delegate
+        {
+            _uiController.StartGame();
+        });
+    }
+
     public override void Hide()
     {
         if (!IsShow) return;

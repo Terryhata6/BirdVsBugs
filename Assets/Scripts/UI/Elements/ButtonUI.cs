@@ -4,12 +4,15 @@ using UnityEngine.UI;
 public class ButtonUI : MonoBehaviour
 {
     private Button _button;
-    public Button GetControll()
+    public Button GetControl
     {
-        if (!_button)
+        get
         {
-            _button = GetComponent<Button>();
+            if (!_button)
+            {
+                _button = transform.GetComponent<Button>();
+            }
+            return _button;
         }
-        return _button;
     }
 }
