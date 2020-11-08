@@ -3,7 +3,6 @@ using UnityEngine.UI;
 
 public class StaminaSlider : MonoBehaviour
 {
-
 	public Slider PowerSlider;
 	public float BirdPower = 50;
 	public float StaminaOffPower = 3;
