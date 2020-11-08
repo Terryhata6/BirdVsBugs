@@ -4,36 +4,83 @@ public class WinPanelModel : MonoBehaviour
 {
 	public SingleBossWindow[] BossWindows;
 	private int[] BossesDefeatedNums;
-	private bool[] IsBossActive;
+	[SerializeField] private int BossesCollected;
+
+	// plyer prefs : 
+	//				MeetBossN - сколько раз встречал босса
+	//				CollectedBossN - встречал босса в текущем подсчете боссов, если равен 1 то встречал
+	//				N - номер босса
 	public void ActivateWinPanel(int LastBossNum)
 	{
-		EnableDarkImages();
 		CrossBoss(LastBossNum);
+		EnableDarkImages();
+		CheckIfAllBossesCollected(LastBossNum);
 		SetBossDefeatedNum();
+		CheckIfNewBossCollected(LastBossNum);
+		if (BossesCollected == BossWindows.Length)
+		{
+			ClearCurrentCollectedBosses();
+		}
 	}
 	private void EnableDarkImages()
 	{
 		for (int i = 0; i < BossWindows.Length; i++)
 		{
-			if (PlayerPrefs.GetInt("HasBeenMeetBoss" + i.ToString()) > 0)
+			if (PlayerPrefs.GetInt("MeetBoss" + i.ToString()) > 0)
 			{
-				IsBossActive[i] = true;
+				BossWindows[i].DarkImage.gameObject.SetActive(false);
 			}
-			BossWindows[i].DarkImage.gameObject.SetActive(IsBossActive[i]);
+			else
+			{
+				BossWindows[i].DarkImage.gameObject.SetActive(true);
+			}
 		}
 	}
 	private void CrossBoss(int BossNum)
 	{
-		PlayerPrefs.SetInt("HasBeenMeetBoss" + BossNum.ToString(), PlayerPrefs.GetInt("HasBeenMeetBoss" + BossNum.ToString()) + 1);
-		Animator CrossAnimator = BossWindows[BossNum].CrossOnBoss.GetComponent<Animator>();
+		PlayerPrefs.SetInt("MeetBoss" + BossNum.ToString(), PlayerPrefs.GetInt("MeetBoss" + BossNum.ToString()) + 1);
+		BossWindows[BossNum].CrossOnBoss.SetTrigger("Cross");
+		if (PlayerPrefs.GetInt("CollectedBoss" + BossNum.ToString()) == 0)
+		{
+			PlayerPrefs.SetInt("CollectedBoss" + BossNum.ToString(), 1);
+		}
+
 	}
 	private void SetBossDefeatedNum()
 	{
+		BossesDefeatedNums = new int[BossWindows.Length];
 		for (int i = 0; i < BossWindows.Length; i++)
 		{
-			BossesDefeatedNums[i] = PlayerPrefs.GetInt("HasBeenMeetBoss" + i.ToString());
-			BossWindows[i].BossDefeatedNum.text = ("x" + PlayerPrefs.GetInt("HasBeenMeetBoss" + i.ToString().ToString()));
+			BossesDefeatedNums[i] = PlayerPrefs.GetInt("MeetBoss" + i.ToString());
+			BossWindows[i].BossDefeatedNum.text = ("x" + PlayerPrefs.GetInt("MeetBoss" + i.ToString().ToString()));
 		}
 	}
-
+	private void CheckIfNewBossCollected(int BossNum)
+	{
+		if (PlayerPrefs.GetInt("CollectedBoss" + BossNum.ToString()) == 0)
+		{
+			BossesCollected++;
+		}
+	}
+	private void CheckIfAllBossesCollected(int BossNum)
+	{
+		for (int i = 0; i < BossWindows.Length; i++)
+		{
+			if (PlayerPrefs.GetInt("CollectedBoss" + i.ToString()) == 1)
+			{
+				if (i != BossNum)
+				{
+					BossWindows[i].CrossOnBoss.SetTrigger("Crossed");
+				}
+				BossesCollected++;
+			}
+		}
+	}
+	private void ClearCurrentCollectedBosses()
+	{
+		for (int i = 0; i < BossWindows.Length; i++)
+		{
+			PlayerPrefs.SetInt("CollectedBoss" + i.ToString(), 0);
+		}
+	}
 }

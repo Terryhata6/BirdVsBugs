@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: fe1cebe6e58177c44b5172bfb530507c
+guid: 225bfb93913165544849e376d213725a
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable:
   - first:
-      74: -5435284732786913067
-    second: Ulitka_boss_bobo5
+      74: -2221914170063841778
+    second: Ulitka_boss_idle
   externalObjects: {}
   materials:
     materialImportMode: 1
