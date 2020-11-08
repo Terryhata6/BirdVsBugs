@@ -9,6 +9,8 @@ public class StaminaSlider : MonoBehaviour
 	public float StaminaOffPower = 3;
 	public float StaminaOffMultiplyer = 1;
 
+	[HideInInspector] public float BasicStaminaOffMultiplyer;
+
 	public void ReduceStaminaByTime()
 	{
 		BirdPower -= Time.deltaTime * (StaminaOffPower * StaminaOffMultiplyer);

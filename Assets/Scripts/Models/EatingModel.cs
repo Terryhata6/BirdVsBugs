@@ -2,7 +2,6 @@
 
 public class EatingModel : MonoBehaviour
 {
-
 	public float DistanceOfBiting;
 	public float SpeedOfBiting;
 	public float EnergyBySingleBug;
@@ -11,11 +10,11 @@ public class EatingModel : MonoBehaviour
 	private Vector3 _biteVector;
 	private float _startZPosition;
 	[SerializeField] private float _sideSelector = -1;
-	private bool _biteWasMade;
 
 	[HideInInspector] public bool СanBiteAgain = true;
-	public bool IsBiting;
-    public int[] BugsOnLvls;
+	[HideInInspector] public bool BiteWasMade;
+	[HideInInspector] public bool IsBiting;
+	[HideInInspector] public int[] BugsOnLvls;
 
 	private void Start()
 	{
@@ -29,16 +28,16 @@ public class EatingModel : MonoBehaviour
 		ColliderTransform.localPosition = _biteVector;
 		if (ColliderTransform.localPosition.z >= _startZPosition + DistanceOfBiting)
 		{
-			_biteWasMade = true;
+			BiteWasMade = true;
 			_sideSelector *= -1;
 		}
-		if (_biteWasMade && ColliderTransform.localPosition.z <= _startZPosition)
+		if (BiteWasMade && ColliderTransform.localPosition.z <= _startZPosition)
 		{
 			IsBiting = false;
 			_biteVector.z = _startZPosition;
 			ColliderTransform.localPosition = _biteVector;
 			_sideSelector *= -1;
-			_biteWasMade = false;
+			BiteWasMade = false;
 		}
 	}
 }

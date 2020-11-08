@@ -74,4 +74,14 @@ public class UIController : MonoBehaviour
         Time.timeScale = 0;
         SwitchUI(UIState.Pause);
     }
+    public void LoseGame()
+    {
+        Time.timeScale = 0;
+        SwitchUI(UIState.LoseGame);
+    }
+    public void WinGame()
+    {
+        Time.timeScale = 0;
+        SwitchUI(UIState.WinGame);
+    }
 }

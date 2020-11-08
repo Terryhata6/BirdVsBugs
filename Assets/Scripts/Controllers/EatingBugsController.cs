@@ -2,20 +2,18 @@
 
 public class EatingBugsController : MonoBehaviour
 {
-	public float WaitTimeBeforeCheckingCollisionWithTree;
 	public int[] BugsOnLvl;
 
 	private InputController _inputController;
-
 	private EatingModel _eatingModel;
 	private MovingUpObjects _movingUpObjects;
 	private StaminaSlider _staminaSlider;
 	private AnimatorsModel _animatorsModel;
 	private Coins _coins;
 	private Boss _bossModel;
-
-	[SerializeField] private int _currentLvl = 0;
+	private int _currentLvl = 0;
 	private bool _nothingWasEaten = true;
+	private bool _bitingEnded = true;
 
 	private void Awake()
 	{
@@ -33,25 +31,29 @@ public class EatingBugsController : MonoBehaviour
 	}
 	private void FixedUpdate()
 	{
-		if (_inputController.DragingStarted && !_eatingModel.IsBiting && _eatingModel.СanBiteAgain)
+		if (_inputController.InputStarted && !_eatingModel.IsBiting && _eatingModel.СanBiteAgain)
 		{
 			_nothingWasEaten = true;
 			_eatingModel.IsBiting = true;
 			_eatingModel.СanBiteAgain = false;
 			_animatorsModel.MakeBiteAnimation();
+			_bitingEnded = false;
 			if (_bossModel.IsBossFightNow)
 			{
 				_bossModel.BossGetDamage();
 			}
-			Invoke("ReduceStamina", WaitTimeBeforeCheckingCollisionWithTree);
 		}
-		if (!_inputController.DragingStarted && !_eatingModel.СanBiteAgain)
+		if (!_inputController.InputStarted && !_eatingModel.СanBiteAgain)
 		{
 			_eatingModel.СanBiteAgain = true;
 		}
 		if (_eatingModel.IsBiting)
 		{
 			_eatingModel.MakeBite();
+		}
+		if(_eatingModel.BiteWasMade && !_bitingEnded)
+		{
+			ReduceStamina();
 		}
 	}
 	public void EatBug(GameObject BugObject)
@@ -93,5 +95,6 @@ public class EatingBugsController : MonoBehaviour
 			}
 			_nothingWasEaten = false;
 		}
+		_bitingEnded = true;
 	}
 }
