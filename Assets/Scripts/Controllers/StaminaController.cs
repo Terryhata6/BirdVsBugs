@@ -5,13 +5,14 @@ public class StaminaController : MonoBehaviour
 	private StaminaSlider _staminaSlider;
 	private EnemyEffects _enemyEffects;
 	private Boss _bossModel;
-	private SceneController _sceneController;
+	private UIController _uiController;
 	private void Awake()
 	{
 		_staminaSlider = FindObjectOfType<StaminaSlider>();
 		_enemyEffects = FindObjectOfType<EnemyEffects>();
-		_sceneController = FindObjectOfType<SceneController>();
+		_uiController = FindObjectOfType<UIController>();
 		_bossModel = FindObjectOfType<Boss>();
+		_staminaSlider.BasicStaminaOffMultiplyer = _staminaSlider.StaminaOffMultiplyer;
 	}
 	private void FixedUpdate()
 	{
@@ -20,11 +21,11 @@ public class StaminaController : MonoBehaviour
 		{
 			if (_bossModel.IsBossFightNow)
 			{
-				_sceneController.ActivateWinPanel();
+				_uiController.WinGame();
 			}
 			else
 			{
-				_sceneController.ActivateLosePanel();
+				_uiController.LoseGame();
 			}
 		}
 	}
@@ -35,6 +36,6 @@ public class StaminaController : MonoBehaviour
 	}
 	private void MakeStaminaGoOffSlower()
 	{
-		_staminaSlider.StaminaOffMultiplyer = 1;
+		_staminaSlider.StaminaOffMultiplyer = _staminaSlider.BasicStaminaOffMultiplyer;
 	}
 }
