@@ -3,7 +3,6 @@
 public class MovingUpObjects : MonoBehaviour
 {
 	public Transform AllMovingUpObjects;
-	public Transform AllBugs;
 	public Transform CharacterTransform;
 	public Transform CameraTransform;
 	public Material TreeMaterial;
@@ -29,7 +28,6 @@ public class MovingUpObjects : MonoBehaviour
 		else
 		{
 			AllMovingUpObjects.position = new Vector3(AllMovingUpObjects.position.x, AllMovingUpObjects.position.y + MovingUpAmount / TimeLenghtOfMovingUp, AllMovingUpObjects.position.z);
-			AllBugs.position = new Vector3(AllBugs.position.x, AllBugs.position.y - MovingUpAmount / TimeLenghtOfMovingUp, AllBugs.position.z);
 			TreeMaterial.SetTextureOffset(MainTex, new Vector2(0, TreeMaterial.GetTextureOffset("_MainTex").y + MovingUpAmount / 10 / TimeLenghtOfMovingUp));
 		}
 	}

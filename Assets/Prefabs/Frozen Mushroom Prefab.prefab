@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5301221851963221730}
   - component: {fileID: -5331110348406995901}
   m_Layer: 0
-  m_Name: Frozen Snail Prefab
+  m_Name: Frozen Mushroom Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,7 +45,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.29, y: 0.5, z: 0.4}
-  m_Center: {x: 0.06, y: 0.2, z: -0.1}
+  m_Center: {x: 0.06, y: -0.21, z: -0.1}
 --- !u!114 &-5331110348406995901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73,7 +73,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 71fb8517b02b55049bf4566ab557c248,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.282
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 71fb8517b02b55049bf4566ab557c248,
         type: 3}

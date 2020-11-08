@@ -5,6 +5,7 @@ public class Boss : MonoBehaviour
 	public BossVariant[] BossesVariants;
 	public float RotationSpeedMyltiplyerForBossBattle;
 	public float StaminaMyltiplyerForBossBattle;
+	public int BossNumber;
 	public bool NeedToStartBossBattle;
 	public bool IsBossFightNow;
 
@@ -15,9 +16,9 @@ public class Boss : MonoBehaviour
 
 	public void SelectBossForThisLvl()
 	{
-		int num = Random.Range(0, BossesVariants.Length - 1);
-		BossesVariants[num].Boss3DModel.SetActive(true);
-		_bossModel = BossesVariants[num].Boss3DModel;
+		BossNumber = Random.Range(0, BossesVariants.Length);
+		BossesVariants[BossNumber].Boss3DModel.SetActive(true);
+		_bossModel = BossesVariants[BossNumber].Boss3DModel;
 		_bossAnimator = _bossModel.GetComponentInChildren<Animator>();
 	}
 	public void SetTriggerManager()

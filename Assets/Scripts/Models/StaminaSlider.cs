@@ -3,11 +3,12 @@ using UnityEngine.UI;
 
 public class StaminaSlider : MonoBehaviour
 {
-
 	public Slider PowerSlider;
 	public float BirdPower = 50;
 	public float StaminaOffPower = 3;
 	public float StaminaOffMultiplyer = 1;
+
+	[HideInInspector] public float BasicStaminaOffMultiplyer;
 
 	public void ReduceStaminaByTime()
 	{
