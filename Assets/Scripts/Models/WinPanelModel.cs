@@ -4,7 +4,7 @@ public class WinPanelModel : MonoBehaviour
 {
 	public SingleBossWindow[] BossWindows;
 	private int[] BossesDefeatedNums;
-	[SerializeField] private int BossesCollected;
+	private int BossesCollected;
 
 	// plyer prefs : 
 	//				MeetBossN - сколько раз встречал босса

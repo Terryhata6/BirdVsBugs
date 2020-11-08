@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class InGameUI : BaseMenu
 {
@@ -7,6 +8,9 @@ public class InGameUI : BaseMenu
 
     [Header("Pause button")]
     [SerializeField] private ButtonUI _pauseButton;
+
+    [Header("Coins Text")]
+    [SerializeField] private TextUI _coinsText;
 
     private UIController _uiController;
 
@@ -18,6 +22,11 @@ public class InGameUI : BaseMenu
         {
             _uiController.PauseGame();
         });
+    }
+
+    public Text GetCoinsText()
+    {
+        return _coinsText.GetControll();
     }
 
     public override void Hide()
