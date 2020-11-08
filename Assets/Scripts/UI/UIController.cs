@@ -81,7 +81,7 @@ public class UIController : MonoBehaviour
     }
     public void WinGame()
     {
-        Time.timeScale = 0;
+        //Time.timeScale = 0;
         SwitchUI(UIState.WinGame);
     }
 }

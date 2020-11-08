@@ -1,10 +1,17 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class WinPanelModel : MonoBehaviour
 {
 	public SingleBossWindow[] BossWindows;
+	public Text CoinsText;
+	public float PauseBeforeAddingCoins;
+	public float PauseBeforeAddingSingleCoin;
+
+	private Coins _coinsModel;
 	private int[] BossesDefeatedNums;
 	private int BossesCollected;
+	private int Coins;
 
 	// plyer prefs : 
 	//				MeetBossN - сколько раз встречал босса
@@ -12,11 +19,15 @@ public class WinPanelModel : MonoBehaviour
 	//				N - номер босса
 	public void ActivateWinPanel(int LastBossNum)
 	{
+		SetAlreadyCollectedCoins();
+		Invoke("AddCoinsInUI", PauseBeforeAddingCoins);
 		CrossBoss(LastBossNum);
 		EnableDarkImages();
 		CheckIfAllBossesCollected(LastBossNum);
 		SetBossDefeatedNum();
 		CheckIfNewBossCollected(LastBossNum);
+
+
 		if (BossesCollected == BossWindows.Length)
 		{
 			ClearCurrentCollectedBosses();
@@ -82,5 +93,24 @@ public class WinPanelModel : MonoBehaviour
 		{
 			PlayerPrefs.SetInt("CollectedBoss" + i.ToString(), 0);
 		}
+	}
+	private void SetAlreadyCollectedCoins()
+	{
+		_coinsModel = FindObjectOfType<Coins>();
+		Coins = _coinsModel.GetAllCollectedCoinsAmount();
+		CoinsText.text = Coins.ToString();
+	}
+	private void AddCoinsInUI()
+	{
+		Debug.Log(_coinsModel.CoinsCollectedOnThisLvl);
+		for (int i = 0; i < _coinsModel.CoinsCollectedOnThisLvl; i++)
+		{
+			Invoke("AddSingleCoin", PauseBeforeAddingSingleCoin * i);
+		}
+	}
+	private void AddSingleCoin()
+	{
+		Coins++;
+		CoinsText.text = Coins.ToString();
 	}
 }

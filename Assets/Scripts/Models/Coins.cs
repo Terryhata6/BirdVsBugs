@@ -23,6 +23,6 @@ public class Coins : MonoBehaviour
     }
     public void AddCoinsCollectedOnLvl()
     {
-        PlayerPrefs.SetInt("coins", PlayerPrefs.GetInt("Coins") + CoinsCollectedOnThisLvl);
+        PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") + CoinsCollectedOnThisLvl);
     }
 }
