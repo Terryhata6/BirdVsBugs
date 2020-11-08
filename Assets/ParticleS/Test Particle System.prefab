@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5012261732515022833}
   - component: {fileID: 4893654997472082185}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: Test Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3877,7 +3877,7 @@ ParticleSystem:
         m_RotationOrder: 4
     maxLights: 20
   TrailModule:
-    enabled: 0
+    enabled: 1
     mode: 0
     ratio: 1
     lifetime:
@@ -4709,7 +4709,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10308, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 23b8f88fa92785940aad7edba2a2c874, type: 2}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
