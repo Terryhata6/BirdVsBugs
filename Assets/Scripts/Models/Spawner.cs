@@ -20,7 +20,9 @@ public class Spawner : MonoBehaviour
 		_bugsOnLvl = new int[0];
 		for (int i = 0; i < AmountOfPresets; i++)
 		{
-			BugsPreset Preset = LvlPresets[Random.Range(0, LvlPresets.Length)];
+			int SelectedPresetNum = Random.Range(0, LvlPresets.Length);
+			BugsPreset Preset = LvlPresets[SelectedPresetNum];
+			Debug.Log("Spawn Preset with name :" + Preset.name);
 			int[] Temp = new int[Preset.PartsOfPreset.Length];
 			for (int j = 0; j < Preset.PartsOfPreset.Length; j++)
 			{
