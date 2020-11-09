@@ -12274,6 +12274,7 @@ MonoBehaviour:
   - {fileID: 2031584509516450752, guid: 26cf29a12b88a3b4981641189cfab07c, type: 3}
   - {fileID: 8555672589667769268, guid: 6cb2aed128a1a1c4aa1d81883fdb4ba2, type: 3}
   LvlPresets:
+  - {fileID: 11400000, guid: 73a11685419e09040955b5a18a41f6a0, type: 2}
   - {fileID: 11400000, guid: 34bf01ebecc1ad545a3c1f285a68d216, type: 2}
   - {fileID: 11400000, guid: 4bd0fa935a52a6c4ba369767d0b55f9a, type: 2}
   - {fileID: 11400000, guid: 592c7fde342ab514d93f6c0a70dab928, type: 2}
@@ -12302,10 +12303,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: cd14387e846cf144195453758b86a4ae, type: 2}
   - {fileID: 11400000, guid: 763b5df528add414196292cd615621b1, type: 2}
   - {fileID: 11400000, guid: 75ee56206bdb4fb4a98164d35cbd41e4, type: 2}
-  - {fileID: 11400000, guid: 73a11685419e09040955b5a18a41f6a0, type: 2}
   StartYPostion: 0.5
   SpaceBetweenLines: 1.5
-  AmountOfPresets: 3
+  AmountOfPresets: 4
   NeedToSpawnPreset: 1
   PositonOfBugs:
   - {x: -0.9, y: 0, z: -0.45}
@@ -12372,8 +12372,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TimeOfFrozen: 1
   MultiplyerOfFrozen: 0.5
-  TimeOfPoisoned: 0.25
-  MultiplyerOfPoisoned: 4
+  TimeOfPoisoned: 0.1
+  MultiplyerOfPoisoned: 12
 --- !u!114 &1785227461
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -34,11 +34,11 @@ MonoBehaviour:
   - SingleBugPreset:
     - PositionOfBug: 0
       NumberOfBug: 3
-    - PositionOfBug: 0
+    - PositionOfBug: 1
       NumberOfBug: 1
-    - PositionOfBug: 0
+    - PositionOfBug: 2
       NumberOfBug: 3
-    - PositionOfBug: 0
+    - PositionOfBug: 3
       NumberOfBug: 1
-    - PositionOfBug: 0
+    - PositionOfBug: 4
       NumberOfBug: 3
