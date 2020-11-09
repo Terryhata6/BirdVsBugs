@@ -7,14 +7,16 @@ public class Coins : MonoBehaviour
     public int CoinsCollectedOnThisLvl;
 
     public Text CoinsText; 
+    public Text DarkCoinsText; 
 
-    //player зrefs : Coins - сохраненные монеты
+    //player prefs : Coins - сохраненные монеты
     public void AddCoin()
     {
         if(Random.Range(1,101) <= ChanceOfCoin)
         {
             CoinsCollectedOnThisLvl++;
             CoinsText.text = CoinsCollectedOnThisLvl.ToString();
+            DarkCoinsText.text = CoinsCollectedOnThisLvl.ToString();
         }
     }
     public int GetAllCollectedCoinsAmount()

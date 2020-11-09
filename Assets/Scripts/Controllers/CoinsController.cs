@@ -10,5 +10,6 @@ public class CoinsController : MonoBehaviour
 		_coinsModel = FindObjectOfType<Coins>();
 		_inGameUi = FindObjectOfType<InGameUI>();
 		_coinsModel.CoinsText = _inGameUi.GetCoinsText();
+		_coinsModel.DarkCoinsText = _inGameUi.GetDarkCoinsText();
 	}
 }

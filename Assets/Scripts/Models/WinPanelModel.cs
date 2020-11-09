@@ -65,10 +65,14 @@ public class WinPanelModel : MonoBehaviour
 	private void CrossBoss(int BossNum)
 	{
 		PlayerPrefs.SetInt(MeetBossPlayerPrefsName + BossNum.ToString(), PlayerPrefs.GetInt(MeetBossPlayerPrefsName + BossNum.ToString()) + 1);
-		BossWindows[BossNum].CrossOnBoss.SetTrigger("Cross");
 		if (PlayerPrefs.GetInt(CollectedBossPlayerPrefsName + BossNum.ToString()) == 0)
 		{
+			BossWindows[BossNum].CrossOnBoss.SetTrigger("Cross");
 			PlayerPrefs.SetInt(CollectedBossPlayerPrefsName + BossNum.ToString(), 1);
+		}
+		else
+		{
+			BossWindows[BossNum].CrossOnBoss.SetTrigger("Crossed");
 		}
 
 	}
@@ -135,11 +139,21 @@ public class WinPanelModel : MonoBehaviour
 		{
 			AddLvlToSlider();
 		}
+		else
+		{
+			if (PlayerPrefs.GetInt(CurrentLvlOfSliderPrefsName) == 3)
+			{
+				PopUPSquare1.SetTrigger("Visible");
+			}
+			else if (PlayerPrefs.GetInt(CurrentLvlOfSliderPrefsName) == 4 || PlayerPrefs.GetInt(CurrentLvlOfSliderPrefsName) == 5)
+			{
+				PopUPSquare1.SetTrigger("Visible");
+			}
+		}
 	}
 
 	private void AddLvlToSlider()
 	{
-		Debug.Log("Slider");
 		PlayerPrefs.SetInt(CurrentLvlOfSliderPrefsName, PlayerPrefs.GetInt(CurrentLvlOfSliderPrefsName) + 1);
 		for (int i = 1; i <= TimesOfAddingInSlider + 1; i++)
 		{
@@ -167,7 +181,7 @@ public class WinPanelModel : MonoBehaviour
 	}
 	private void AddLittlePartToSlider()
 	{
-		RoadMapSlider.value = RoadMapSlider.value +  1f / TimesOfAddingInSlider;
+		RoadMapSlider.value = RoadMapSlider.value + 1f / TimesOfAddingInSlider;
 	}
 	private void FirstPopUp()
 	{

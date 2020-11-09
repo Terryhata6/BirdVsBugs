@@ -12,6 +12,9 @@ public class InGameUI : BaseMenu
     [Header("Coins Text")]
     [SerializeField] private TextUI _coinsText;
 
+    [Header("Dark Coins Text")]
+    [SerializeField] private TextUI _darkCoinsText;
+
     private UIController _uiController;
 
     private void Start()
@@ -27,6 +30,10 @@ public class InGameUI : BaseMenu
     public Text GetCoinsText()
     {
         return _coinsText.GetControll();
+    }
+    public Text GetDarkCoinsText()
+    {
+        return _darkCoinsText.GetControll();
     }
 
     public override void Hide()
