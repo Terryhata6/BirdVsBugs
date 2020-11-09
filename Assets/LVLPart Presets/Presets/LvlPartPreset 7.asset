@@ -25,6 +25,8 @@ MonoBehaviour:
     - PositionOfBug: 3
       NumberOfBug: 1
   - SingleBugPreset:
+    - PositionOfBug: 2
+      NumberOfBug: 0
     - PositionOfBug: 3
       NumberOfBug: 2
   - SingleBugPreset:
