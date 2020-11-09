@@ -14,11 +14,18 @@ public class Boss : MonoBehaviour
 	private string[] _bossesTriggerManager;
 
 
-	public void SelectBossForThisLvl()
+	public void SelectRandomBossForThisLvl()
 	{
 		BossNumber = Random.Range(0, BossesVariants.Length);
 		BossesVariants[BossNumber].Boss3DModel.SetActive(true);
 		_bossModel = BossesVariants[BossNumber].Boss3DModel;
+		_bossAnimator = _bossModel.GetComponentInChildren<Animator>();
+	}
+	public void SelectNotRandomBossForThisLvl(int BossNum)
+	{
+		BossNumber = BossNum;
+		BossesVariants[BossNum].Boss3DModel.SetActive(true);
+		_bossModel = BossesVariants[BossNum].Boss3DModel;
 		_bossAnimator = _bossModel.GetComponentInChildren<Animator>();
 	}
 	public void SetTriggerManager()

@@ -7,21 +7,26 @@ public class ParticlesController : MonoBehaviour
     private void Awake()
     {
         _particles = FindObjectOfType<ParticlesModel>();
+        _particles.PreapreParticles();
     }
-    public void PlaySimpleBugParticles(Vector3 Position)
+    public void PlaySimpleBugParticles()
     {
-        _particles.PlayParticle(_particles.DeathSimpleBug, Position);
+        _particles.PlayParticle(_particles.DeathSimpleBugPrepared);
     }
-    public void PlayArmoredBugParticles(Vector3 Position)
+    public void PlayArmoredBugParticles()
     {
-        _particles.PlayParticle(_particles.DeathShieldBug, Position);
+        _particles.PlayParticle(_particles.DeathShieldBugPrepared);
     }
-    public void PlayAcidMushroomsParticles(Vector3 Position)
+    public void PlayAcidMushroomsParticles()
     {
-        _particles.PlayParticle(_particles.DeathAcidMushroom, Position);
+        _particles.PlayParticle(_particles.DeathAcidMushroomPrepared);
     }
-    public void PlayFrozenMushroomsParticles(Vector3 Position)
+    public void PlayFrozenMushroomsParticles()
     {
-        _particles.PlayParticle(_particles.DeathFrozenMushroom, Position);
+        _particles.PlayParticle(_particles.DeathFrozenMushroomPrepared);
+    }
+    public void PlayBossParticles()
+    {
+        _particles.PlayParticle(_particles.DeathSimpleBugPrepared);
     }
 }

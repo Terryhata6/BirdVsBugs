@@ -9,6 +9,7 @@ public class EatingBugsController : MonoBehaviour
 	private MovingUpObjects _movingUpObjects;
 	private StaminaSlider _staminaSlider;
 	private AnimatorsModel _animatorsModel;
+	private ParticlesController _particlesController;
 	private Coins _coins;
 	private Boss _bossModel;
 	private int _currentLvl = 0;
@@ -22,6 +23,7 @@ public class EatingBugsController : MonoBehaviour
 		_inputController = FindObjectOfType<InputController>();
 		_staminaSlider = FindObjectOfType<StaminaSlider>();
 		_animatorsModel = FindObjectOfType<AnimatorsModel>();
+		_particlesController = FindObjectOfType<ParticlesController>();
 		_bossModel = FindObjectOfType<Boss>();
 		_coins = FindObjectOfType<Coins>();
 	}
@@ -31,7 +33,7 @@ public class EatingBugsController : MonoBehaviour
 	}
 	private void FixedUpdate()
 	{
-		if (_inputController.InputStarted && !_eatingModel.IsBiting && _eatingModel.СanBiteAgain)
+		if (_inputController.InputStarted && !_eatingModel.IsBiting && _eatingModel.СanBiteAgain&& _eatingModel.СanBiteAtAll)
 		{
 			_nothingWasEaten = true;
 			_eatingModel.IsBiting = true;
@@ -41,6 +43,7 @@ public class EatingBugsController : MonoBehaviour
 			if (_bossModel.IsBossFightNow)
 			{
 				_bossModel.BossGetDamage();
+				_particlesController.PlayBossParticles();
 			}
 		}
 		if (!_inputController.InputStarted && !_eatingModel.СanBiteAgain)

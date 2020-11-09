@@ -15,7 +15,7 @@ public class MushroomTriggerChecker : MonoBehaviour
 	{
 		_staminaController.MakeStaminaGoOffFaster();
 		_eatingController.EatSomething();
-		_particlesController.PlayAcidMushroomsParticles(transform.position);
+		_particlesController.PlayAcidMushroomsParticles();
 		Destroy(this.gameObject);
 	}
 }

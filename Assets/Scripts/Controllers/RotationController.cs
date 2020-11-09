@@ -5,7 +5,6 @@ public class RotationController : MonoBehaviour
 
 	private Vector3 _rotationVector;
 	private Vector3 _rotationVectorForCamera;
-	private float _sideSelector = 1;
 	private float _rotationSpeedMultiplyer = 1f;
 	public bool CanRotate;
 
@@ -22,14 +21,14 @@ public class RotationController : MonoBehaviour
 	{
 		_rotationVector = new Vector3();
 		_rotationVectorForCamera = new Vector3();
-		CanRotate = true;
+		_rotatingObjectModel.NeedToRotate = true;
 	}
 	void FixedUpdate()
 	{
-		if (CanRotate)
+		if (_rotatingObjectModel.NeedToRotate)
 		{
-			_rotationVector.y = (_rotatingObjectModel.ObjectRotationSpeed * _rotationSpeedMultiplyer * _sideSelector);
-			_rotationVectorForCamera.y = (_rotatingObjectModel.CameraRotationSpeed * _rotationSpeedMultiplyer * _sideSelector );
+			_rotationVector.y = (_rotatingObjectModel.ObjectRotationSpeed * _rotationSpeedMultiplyer * _rotatingObjectModel.SideSelector);
+			_rotationVectorForCamera.y = (_rotatingObjectModel.CameraRotationSpeed * _rotationSpeedMultiplyer * _rotatingObjectModel.SideSelector);
 
 			_rotatingObjectModel.RotateObject(_rotationVector);
 			_rotatingObjectModel.RotateCamera(_rotationVectorForCamera);
@@ -42,16 +41,16 @@ public class RotationController : MonoBehaviour
 	{
 		if (_rotatingObjectModel.RotatingObjectTransform.rotation.eulerAngles.y >= _rotatingObjectModel.DistanceOfRotation
 			&& _rotatingObjectModel.RotatingObjectTransform.rotation.eulerAngles.y < _rotatingObjectModel.DistanceOfRotation + 5
-			&& _sideSelector > 0)
+			&& _rotatingObjectModel.SideSelector > 0)
 		{
-			_sideSelector *= -1;
+			_rotatingObjectModel.SideSelector *= -1;
 		}
 		else 
 		if (_rotatingObjectModel.RotatingObjectTransform.rotation.eulerAngles.y <= 360 - _rotatingObjectModel.DistanceOfRotation
 			&& _rotatingObjectModel.RotatingObjectTransform.rotation.eulerAngles.y > _rotatingObjectModel.DistanceOfRotation
-			&& _sideSelector < 0)
+			&& _rotatingObjectModel.SideSelector < 0)
 		{
-			_sideSelector *= -1;
+			_rotatingObjectModel.SideSelector *= -1;
 		}
 	}
 	public void MakeRotationGoSlower()

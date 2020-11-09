@@ -8,7 +8,7 @@ public class UIController : MonoBehaviour
     private WinGameMenu _winGameMenu;
     private LoseGameMenu _loseGameMenu;
 
-    private void Start()
+    private void Awake()
     {
         Time.timeScale = 0;
 

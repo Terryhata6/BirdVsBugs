@@ -18,11 +18,11 @@ public class ArmoredBugTriggerChecker : MonoBehaviour
 			_hasShield = false;
 			Shield.SetActive(false);
 			_eatingController.EatSomething();
-			_particlesController.PlayArmoredBugParticles(transform.position);
+			_particlesController.PlayArmoredBugParticles();
 		}
 		else
 		{
-			_particlesController.PlayArmoredBugParticles(transform.position);
+			_particlesController.PlayArmoredBugParticles();
 			_eatingController.EatBug(this.gameObject);
 		}
 	}

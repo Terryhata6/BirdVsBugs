@@ -23,7 +23,7 @@ MonoBehaviour:
     - PositionOfBug: 3
       NumberOfBug: 3
     - PositionOfBug: 4
-      NumberOfBug: 0
+      NumberOfBug: 4
   - SingleBugPreset:
     - PositionOfBug: 0
       NumberOfBug: 1
@@ -40,4 +40,4 @@ MonoBehaviour:
     - PositionOfBug: 1
       NumberOfBug: 0
     - PositionOfBug: 3
-      NumberOfBug: 0
+      NumberOfBug: 4

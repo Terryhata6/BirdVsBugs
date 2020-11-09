@@ -30,6 +30,6 @@ MonoBehaviour:
       NumberOfBug: 3
   - SingleBugPreset:
     - PositionOfBug: 1
-      NumberOfBug: 0
+      NumberOfBug: 4
     - PositionOfBug: 0
       NumberOfBug: 2

@@ -15,7 +15,7 @@ public class SnailTriggerChecker : MonoBehaviour
 	{
 		_rotationController.MakeRotationGoSlower();
 		_eatingController.EatSomething();
-		_particlesController.PlayFrozenMushroomsParticles(transform.position);
+		_particlesController.PlayFrozenMushroomsParticles();
 		Destroy(this.gameObject);
 	}
 }

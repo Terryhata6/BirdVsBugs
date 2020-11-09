@@ -11,7 +11,7 @@ public class SimpleBugTriggerChecker : MonoBehaviour
 	}
 	private void OnTriggerEnter(Collider other)
 	{
-		_particlesController.PlaySimpleBugParticles(transform.position);
+		_particlesController.PlaySimpleBugParticles();
 		_eatingController.EatBug(this.gameObject);
 	}
 }
