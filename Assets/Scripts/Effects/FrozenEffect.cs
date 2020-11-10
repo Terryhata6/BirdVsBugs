@@ -19,7 +19,6 @@ public class FrozenEffect : MonoBehaviour
     }
     public void TurnOffFrozenEffect()
     {
-        Debug.Log("FrozeALittle");
         _colorForFrozenImages = LeftFrozenEffect.color;
         for (int i = 1; i <= HowManyTimesAlphaChanges; i++)
         {

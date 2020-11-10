@@ -1,8 +1,11 @@
 fileFormatVersion: 2
-guid: 406f7a07759bfa14bbca2dde3ba6efa5
+guid: 6b53a49fd80b8af4ca67786d3643e338
 ModelImporter:
   serializedVersion: 19300
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      74: 9138215103798410524
+    second: ZHUK_REVERSE
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -60,8 +63,8 @@ ModelImporter:
     secondaryUVPackMargin: 4
     useFileScale: 1
   tangentSpace:
-    normalSmoothAngle: 180
-    normalImportMode: 1
+    normalSmoothAngle: 60
+    normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0

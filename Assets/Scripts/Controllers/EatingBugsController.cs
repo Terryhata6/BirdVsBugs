@@ -10,6 +10,7 @@ public class EatingBugsController : MonoBehaviour
 	private StaminaSlider _staminaSlider;
 	private AnimatorsModel _animatorsModel;
 	private ParticlesController _particlesController;
+	private SoundController _soundController;
 	private Coins _coins;
 	private Boss _bossModel;
 	private int _currentLvl = 0;
@@ -24,6 +25,7 @@ public class EatingBugsController : MonoBehaviour
 		_staminaSlider = FindObjectOfType<StaminaSlider>();
 		_animatorsModel = FindObjectOfType<AnimatorsModel>();
 		_particlesController = FindObjectOfType<ParticlesController>();
+		_soundController = FindObjectOfType<SoundController>();
 		_bossModel = FindObjectOfType<Boss>();
 		_coins = FindObjectOfType<Coins>();
 	}
@@ -33,7 +35,7 @@ public class EatingBugsController : MonoBehaviour
 	}
 	private void FixedUpdate()
 	{
-		if (_inputController.InputStarted && !_eatingModel.IsBiting && _eatingModel.СanBiteAgain&& _eatingModel.СanBiteAtAll)
+		if (_inputController.InputStarted && !_eatingModel.IsBiting && _eatingModel.СanBiteAgain && _eatingModel.СanBiteAtAll)
 		{
 			_nothingWasEaten = true;
 			_eatingModel.IsBiting = true;
@@ -42,6 +44,7 @@ public class EatingBugsController : MonoBehaviour
 			_bitingEnded = false;
 			if (_bossModel.IsBossFightNow)
 			{
+				_soundController.PlayEatSomethingSound();
 				_bossModel.BossGetDamage();
 				_particlesController.PlayBossParticles();
 				_coins.AddCoin();
@@ -55,7 +58,7 @@ public class EatingBugsController : MonoBehaviour
 		{
 			_eatingModel.MakeBite();
 		}
-		if(_eatingModel.BiteWasMade && !_bitingEnded)
+		if (_eatingModel.BiteWasMade && !_bitingEnded)
 		{
 			ReduceStamina();
 		}
@@ -65,6 +68,7 @@ public class EatingBugsController : MonoBehaviour
 		_coins.AddCoin();
 		Destroy(BugObject);
 		_nothingWasEaten = false;
+		_soundController.PlayEatSomethingSound();
 		if (BugsOnLvl.Length - _currentLvl == 9)
 		{
 			_movingUpObjects.NeedToMoveOnlyCharacter = true;
@@ -87,12 +91,17 @@ public class EatingBugsController : MonoBehaviour
 	}
 	public void EatSomething()
 	{
+		_soundController.PlayEatSomethingSound();
 		_nothingWasEaten = false;
 	}
 	private void ReduceStamina()
 	{
 		if (_nothingWasEaten)
 		{
+			if (!_bossModel.IsBossFightNow)
+			{
+				_soundController.PlayHitTreeSound();
+			}
 			if (!_bossModel.IsBossFightNow)
 			{
 				_staminaSlider.ReduceStaminaByNum(_eatingModel.EnergyMissClick);

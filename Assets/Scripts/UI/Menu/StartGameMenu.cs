@@ -24,10 +24,13 @@ public class StartGameMenu : BaseMenu
             _movingUpModel = FindObjectOfType<MovingUpObjects>();
             _eatingModel = FindObjectOfType<EatingModel>();
             _movingUpModel.MoveBirdUpAtStart();
-            _eatingModel.СanBiteAtAll = true;
+            Invoke("ActivateBiting", 0.1f);
         });
     }
-
+    private void ActivateBiting()
+    {
+        _eatingModel.СanBiteAtAll = true;
+    }
     public override void Hide()
     {
         if (!IsShow) return;

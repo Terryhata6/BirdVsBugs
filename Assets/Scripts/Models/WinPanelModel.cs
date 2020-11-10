@@ -127,6 +127,13 @@ public class WinPanelModel : MonoBehaviour
 			Invoke("AddSingleCoin", PauseBeforeAddingSingleCoin * i);
 		}
 	}
+	private void AddMoreCoinsInUI(int Amount)
+	{
+		for (int i = 0; i < _coinsModel.CoinsCollectedOnThisLvl; i++)
+		{
+			Invoke("AddSingleCoin", PauseBeforeAddingSingleCoin * i);
+		}
+	}
 	private void AddSingleCoin()
 	{
 		Coins++;
@@ -166,11 +173,15 @@ public class WinPanelModel : MonoBehaviour
 				if (PlayerPrefs.GetInt(CurrentLvlOfSliderPrefsName) == 3)
 				{
 					Invoke("FirstPopUp", 1);
+					_coinsModel.AddCoins(250);
+					AddMoreCoinsInUI(250);
 				}
 				else if (PlayerPrefs.GetInt(CurrentLvlOfSliderPrefsName) == 6)
 				{
 					PopUPSquare1.SetTrigger("Visible");
 					Invoke("SecondPopUp", 1);
+					_coinsModel.AddCoins(500);
+					AddMoreCoinsInUI(500);
 				}
 				else if (PlayerPrefs.GetInt(CurrentLvlOfSliderPrefsName) == 4 || PlayerPrefs.GetInt(CurrentLvlOfSliderPrefsName) == 5)
 				{
