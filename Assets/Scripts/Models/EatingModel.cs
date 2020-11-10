@@ -5,6 +5,7 @@ public class EatingModel : MonoBehaviour
 	public float DistanceOfBiting;
 	public float SpeedOfBiting;
 	public float EnergyBySingleBug;
+	public float EnergyMissClick;
 
 	public Transform ColliderTransform;
 	private Vector3 _biteVector;

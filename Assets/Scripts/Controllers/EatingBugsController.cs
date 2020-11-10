@@ -95,7 +95,7 @@ public class EatingBugsController : MonoBehaviour
 		{
 			if (!_bossModel.IsBossFightNow)
 			{
-				_staminaSlider.ReduceStaminaByNum(10);
+				_staminaSlider.ReduceStaminaByNum(_eatingModel.EnergyMissClick);
 			}
 			_nothingWasEaten = false;
 		}
