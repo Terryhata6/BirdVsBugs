@@ -8,6 +8,9 @@ public class StartGameMenu : BaseMenu
     [Header("Tap to start button")]
     [SerializeField] private ButtonUI _tapToStart;
 
+    private MovingUpObjects _movingUpModel;
+    private EatingModel _eatingModel;
+
     private UIController _uiController;
 
 
@@ -18,6 +21,10 @@ public class StartGameMenu : BaseMenu
         _tapToStart.GetControl.onClick.AddListener(delegate
         {
             _uiController.StartGame();
+            _movingUpModel = FindObjectOfType<MovingUpObjects>();
+            _eatingModel = FindObjectOfType<EatingModel>();
+            _movingUpModel.MoveBirdUpAtStart();
+            _eatingModel.СanBiteAtAll = true;
         });
     }
 

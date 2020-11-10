@@ -44,6 +44,7 @@ public class EatingBugsController : MonoBehaviour
 			{
 				_bossModel.BossGetDamage();
 				_particlesController.PlayBossParticles();
+				_coins.AddCoin();
 			}
 		}
 		if (!_inputController.InputStarted && !_eatingModel.СanBiteAgain)

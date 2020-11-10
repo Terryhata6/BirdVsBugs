@@ -7,6 +7,9 @@ public class StaminaSlider : MonoBehaviour
 	public float BirdPower = 50;
 	public float StaminaOffPower = 3;
 	public float StaminaOffMultiplyer = 1;
+	public Image StaminaHelthBar;
+	public Sprite NormalHealthBar;
+	public Sprite PoisonedHealthBar;
 
 	[HideInInspector] public float BasicStaminaOffMultiplyer;
 

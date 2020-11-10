@@ -62,10 +62,12 @@ public class StaminaController : MonoBehaviour
 	public void MakeStaminaGoOffFaster()
 	{
 		_staminaSlider.StaminaOffMultiplyer = _enemyEffects.MultiplyerOfPoisoned;
+		_staminaSlider.StaminaHelthBar.sprite = _staminaSlider.PoisonedHealthBar;
 		Invoke("MakeStaminaGoOffSlower", _enemyEffects.TimeOfPoisoned);
 	}
 	private void MakeStaminaGoOffSlower()
 	{
 		_staminaSlider.StaminaOffMultiplyer = _staminaSlider.BasicStaminaOffMultiplyer;
+		_staminaSlider.StaminaHelthBar.sprite = _staminaSlider.NormalHealthBar;
 	}
 }

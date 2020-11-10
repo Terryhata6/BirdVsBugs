@@ -7,13 +7,20 @@ public class Coins : MonoBehaviour
     public int CoinsCollectedOnThisLvl;
 
     public Text CoinsText; 
-    public Text DarkCoinsText; 
+    public Text DarkCoinsText;
+
+    private CoinEffect _coinEffect;
 
     //player prefs : Coins - сохраненные монеты
+    private void Awake()
+    {
+        _coinEffect = FindObjectOfType<CoinEffect>();
+    }
     public void AddCoin()
     {
         if(Random.Range(1,101) <= ChanceOfCoin)
         {
+            _coinEffect.MakePopUp();
             CoinsCollectedOnThisLvl++;
             CoinsText.text = CoinsCollectedOnThisLvl.ToString();
             DarkCoinsText.text = CoinsCollectedOnThisLvl.ToString();

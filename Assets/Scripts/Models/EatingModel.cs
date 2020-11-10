@@ -11,7 +11,7 @@ public class EatingModel : MonoBehaviour
 	private float _startZPosition;
 	[SerializeField] private float _sideSelector = -1;
 
-	[HideInInspector] public bool СanBiteAtAll = true;
+	[HideInInspector] public bool СanBiteAtAll = false;
 	[HideInInspector] public bool СanBiteAgain = true;
 	[HideInInspector] public bool BiteWasMade;
 	[HideInInspector] public bool IsBiting;
