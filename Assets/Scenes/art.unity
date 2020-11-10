@@ -12968,7 +12968,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PowerSlider: {fileID: 1408428124}
   BirdPower: 50
-  StaminaOffPower: 9
+  StaminaOffPower: 8
   StaminaOffMultiplyer: 1
   StaminaHelthBar: {fileID: 1725719609}
   NormalHealthBar: {fileID: 21300000, guid: 60128a46454caae42a3b32cee10c8621, type: 3}
