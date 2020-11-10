@@ -13094,8 +13094,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DistanceOfRotation: 78
-  ObjectRotationSpeed: 1.5
-  CameraRotationSpeed: 0.3
+  ObjectRotationSpeed: 1.7
+  CameraRotationSpeed: 0.7
   RotatingObjectTransform: {fileID: 618349614}
   CameraTransform: {fileID: 563902654}
   NeedToRotate: 0
@@ -13298,7 +13298,7 @@ MonoBehaviour:
   - Boss3DModel: {fileID: 300217285}
   - Boss3DModel: {fileID: 1407019936}
   RotationSpeedMyltiplyerForBossBattle: 1
-  StaminaMyltiplyerForBossBattle: 2
+  StaminaMyltiplyerForBossBattle: 1.7
   BossNumber: 0
   NeedToStartBossBattle: 0
   IsBossFightNow: 0
