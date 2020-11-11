@@ -32,6 +32,7 @@ public class WinPanelModel : MonoBehaviour
 	{
 		SetAlreadyCollectedCoins();
 		Invoke("AddCoinsInUI", PauseBeforeAddingCoins);
+		Invoke("CheckForBonusCoins", PauseBeforeAddingCoins);
 		CountSliderLvl(LastBossNum);
 		CrossBoss(LastBossNum);
 		EnableDarkImages();
@@ -129,7 +130,7 @@ public class WinPanelModel : MonoBehaviour
 	}
 	private void AddMoreCoinsInUI(int Amount)
 	{
-		for (int i = 0; i < _coinsModel.CoinsCollectedOnThisLvl; i++)
+		for (int i = 0; i < Amount; i++)
 		{
 			Invoke("AddSingleCoin", PauseBeforeAddingSingleCoin * i);
 		}
@@ -174,20 +175,29 @@ public class WinPanelModel : MonoBehaviour
 				{
 					Invoke("FirstPopUp", 1);
 					_coinsModel.AddCoins(250);
-					AddMoreCoinsInUI(250);
 				}
-				else if (PlayerPrefs.GetInt(CurrentLvlOfSliderPrefsName) == 6)
+				else if (PlayerPrefs.GetInt(CurrentLvlOfSliderPrefsName) == 0)
 				{
 					PopUPSquare1.SetTrigger("Visible");
 					Invoke("SecondPopUp", 1);
 					_coinsModel.AddCoins(500);
-					AddMoreCoinsInUI(500);
 				}
 				else if (PlayerPrefs.GetInt(CurrentLvlOfSliderPrefsName) == 4 || PlayerPrefs.GetInt(CurrentLvlOfSliderPrefsName) == 5)
 				{
 					PopUPSquare1.SetTrigger("Visible");
 				}
 			}
+		}
+	}
+	private void CheckForBonusCoins()
+	{
+		if (PlayerPrefs.GetInt(CurrentLvlOfSliderPrefsName) == 3)
+		{
+			AddMoreCoinsInUI(250);
+		}
+		else if (PlayerPrefs.GetInt(CurrentLvlOfSliderPrefsName) == 0)// 0 потому что обнуляется счетчик
+		{
+			AddMoreCoinsInUI(500);
 		}
 	}
 	private void AddLittlePartToSlider()

@@ -13972,7 +13972,7 @@ MonoBehaviour:
   - {fileID: 1203003424404821007, guid: 0cb8d6a6f76befb4982d598ddb44cfab, type: 3}
   StartYPostion: 0.5
   SpaceBetweenLines: 1.5
-  AmountOfPresets: 4
+  AmountOfPresets: 1
   NeedToSpawnPreset: 1
   PositonOfBugs:
   - {x: -0.9, y: 0, z: -0.45}
@@ -14569,7 +14569,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: fea471d658c262147bac6c0fcf26c5f4, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.2
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
