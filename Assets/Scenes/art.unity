@@ -13972,7 +13972,7 @@ MonoBehaviour:
   - {fileID: 1203003424404821007, guid: 0cb8d6a6f76befb4982d598ddb44cfab, type: 3}
   StartYPostion: 0.5
   SpaceBetweenLines: 1.5
-  AmountOfPresets: 1
+  AmountOfPresets: 4
   NeedToSpawnPreset: 1
   PositonOfBugs:
   - {x: -0.9, y: 0, z: -0.45}

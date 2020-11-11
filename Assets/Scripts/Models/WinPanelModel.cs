@@ -176,7 +176,7 @@ public class WinPanelModel : MonoBehaviour
 					Invoke("FirstPopUp", 1);
 					_coinsModel.AddCoins(250);
 				}
-				else if (PlayerPrefs.GetInt(CurrentLvlOfSliderPrefsName) == 0)
+				else if (PlayerPrefs.GetInt(CurrentLvlOfSliderPrefsName) == 6)
 				{
 					PopUPSquare1.SetTrigger("Visible");
 					Invoke("SecondPopUp", 1);
