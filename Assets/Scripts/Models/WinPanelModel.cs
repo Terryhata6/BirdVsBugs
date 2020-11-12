@@ -9,7 +9,7 @@ public class WinPanelModel : MonoBehaviour
 	public Slider RoadMapSlider;
 	public Text CoinsText;
 	public float PauseBeforeAddingCoins;
-	public float PauseBeforeAddingSingleCoin;
+	public float TimeOfAddingCoins;
 	public int TimesOfAddingInSlider;
 
 	private Coins _coinsModel;
@@ -119,26 +119,26 @@ public class WinPanelModel : MonoBehaviour
 	{
 		_coinsModel = FindObjectOfType<Coins>();
 		Coins = _coinsModel.GetAllCollectedCoinsAmount();
-		CoinsText.text = Coins.ToString();
+		CoinsText.text ="= " +  Coins.ToString();
 	}
 	private void AddCoinsInUI()
 	{
 		for (int i = 0; i < _coinsModel.CoinsCollectedOnThisLvl; i++)
 		{
-			Invoke("AddSingleCoin", PauseBeforeAddingSingleCoin * i);
+			Invoke("AddSingleCoin", TimeOfAddingCoins / _coinsModel.CoinsCollectedOnThisLvl * i);
 		}
 	}
 	private void AddMoreCoinsInUI(int Amount)
 	{
 		for (int i = 0; i < Amount; i++)
 		{
-			Invoke("AddSingleCoin", PauseBeforeAddingSingleCoin * i);
+			Invoke("AddSingleCoin", TimeOfAddingCoins / Amount * i);
 		}
 	}
 	private void AddSingleCoin()
 	{
 		Coins++;
-		CoinsText.text = Coins.ToString();
+		CoinsText.text = "= " + Coins.ToString();
 	}
 	private void CountSliderLvl(int BossNum)
 	{

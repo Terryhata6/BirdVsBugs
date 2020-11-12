@@ -10,6 +10,7 @@ public class Spawner : MonoBehaviour
 	public float SpaceBetweenLines;
 	public int AmountOfPresets;
 	public bool NeedToSpawnPreset;
+	public bool NeedToDebugPrsets;
 	public Vector3[] PositonOfBugs;
 	public float[] RotationOfBugs;
 
@@ -25,7 +26,10 @@ public class Spawner : MonoBehaviour
 		{
 			int SelectedPresetNum = UnityEngine.Random.Range(0, LvlPresets.Length);
 			BugsPreset Preset = LvlPresets[SelectedPresetNum];
-			Debug.Log("Spawn Preset with name :" + Preset.name);
+			if (NeedToDebugPrsets)
+			{
+				Debug.Log("Spawn Preset with name :" + Preset.name);
+			}
 			int[] Temp = new int[Preset.PartsOfPreset.Length];
 			for (int j = 0; j < Preset.PartsOfPreset.Length; j++)
 			{

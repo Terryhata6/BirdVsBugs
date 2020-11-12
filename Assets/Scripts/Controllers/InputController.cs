@@ -16,22 +16,26 @@ public class InputController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.touchCount > 0)
+        for (int i = 1; i <= Input.touchCount; i++)
         {
-            touch = Input.GetTouch(0);
-            if (touch.phase == TouchPhase.Began)
+            if (Input.touchCount > 0 && !InputStarted)
             {
-                InputStarted = true;
-                TouchPosition = CameraForInput.ScreenToWorldPoint(touch.position);
+                touch = Input.GetTouch(i - 1);
+                if (touch.phase == TouchPhase.Began )
+                {
+                    InputStarted = true;
+                    TouchPosition = CameraForInput.ScreenToWorldPoint(touch.position);
+                }
+                else if (touch.phase == TouchPhase.Moved)
+                {
+                    TouchPosition = CameraForInput.ScreenToWorldPoint(touch.position);
+                }
             }
-            else if (touch.phase == TouchPhase.Moved)
+            else if(InputStarted)
             {
-                TouchPosition = CameraForInput.ScreenToWorldPoint(touch.position);
+                InputStarted = false;
             }
         }
-        else
-        {
-            InputStarted = false;
-        }
+        Debug.Log(InputStarted);
     }
 }

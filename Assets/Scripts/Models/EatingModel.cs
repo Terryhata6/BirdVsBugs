@@ -4,6 +4,7 @@ public class EatingModel : MonoBehaviour
 {
 	public float DistanceOfBiting;
 	public float SpeedOfBiting;
+	public float SpeedOfBitingForBossBattle;
 	public float EnergyBySingleBug;
 	public float EnergyMissClick;
 

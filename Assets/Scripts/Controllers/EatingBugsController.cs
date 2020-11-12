@@ -33,7 +33,7 @@ public class EatingBugsController : MonoBehaviour
 	{
 		BugsOnLvl = _eatingModel.BugsOnLvls;
 	}
-	private void FixedUpdate()
+	private void Update()
 	{
 		if (_inputController.InputStarted && !_eatingModel.IsBiting && _eatingModel.СanBiteAgain && _eatingModel.СanBiteAtAll)
 		{
@@ -43,7 +43,11 @@ public class EatingBugsController : MonoBehaviour
 			_animatorsModel.MakeBiteAnimation();
 			_bitingEnded = false;
 			if (_bossModel.IsBossFightNow)
-			{
+			{	
+				if(_eatingModel.SpeedOfBiting != _eatingModel.SpeedOfBitingForBossBattle)
+				{
+					_eatingModel.SpeedOfBiting = _eatingModel.SpeedOfBitingForBossBattle;
+				}
 				_soundController.PlayEatSomethingSound();
 				_bossModel.BossGetDamage();
 				_particlesController.PlayBossParticles();
@@ -54,13 +58,16 @@ public class EatingBugsController : MonoBehaviour
 		{
 			_eatingModel.СanBiteAgain = true;
 		}
-		if (_eatingModel.IsBiting)
-		{
-			_eatingModel.MakeBite();
-		}
 		if (_eatingModel.BiteWasMade && !_bitingEnded)
 		{
 			ReduceStamina();
+		}
+	}
+	private void FixedUpdate()
+	{
+		if (_eatingModel.IsBiting)
+		{
+			_eatingModel.MakeBite();
 		}
 	}
 	public void EatBug(GameObject BugObject)
