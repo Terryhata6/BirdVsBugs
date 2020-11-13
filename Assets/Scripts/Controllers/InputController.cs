@@ -36,6 +36,5 @@ public class InputController : MonoBehaviour
                 InputStarted = false;
             }
         }
-        Debug.Log(InputStarted);
     }
 }
