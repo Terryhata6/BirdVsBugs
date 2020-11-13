@@ -326,7 +326,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 618349614}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &92145391
 GameObject:
@@ -4163,8 +4163,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 989337464}
-  - {fileID: 1424138500}
   - {fileID: 48903464}
+  - {fileID: 1424138500}
   - {fileID: 1549567670}
   - {fileID: 752935678}
   m_Father: {fileID: 1160668043}
@@ -5127,7 +5127,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a4ec778262b43c74a912f692bb4ab4ab, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 37ab641ebe83e1741a96577502f80251, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
