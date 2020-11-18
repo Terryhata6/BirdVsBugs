@@ -9878,7 +9878,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 163737564737f216369646f526162727, type: 2}
+  - {fileID: 2100000, guid: 9c95a7e06e9f42045bdb3bf12731b8f9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -13753,7 +13753,7 @@ MonoBehaviour:
   AllMovingUpObjects: {fileID: 1160668043}
   CharacterTransform: {fileID: 618349614}
   CameraTransform: {fileID: 563902654}
-  TreeMaterial: {fileID: 2100000, guid: 163737564737f216369646f526162727, type: 2}
+  TreeMaterial: {fileID: 2100000, guid: 9c95a7e06e9f42045bdb3bf12731b8f9, type: 2}
   MovingUpAmount: 1.5
   StartMovingUpAmount: 6
   TimeLenghtOfMovingUp: 15
