@@ -14,20 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedAppIndex: 0
   clientTokens:
-  - 
+  - 98486987d3f5480e5308d39314e78523
   appIds:
   - 834762283940510
   appLabels:
   - Bird vs Bugs
   cookie: 1
-  logging: 1
+  logging: 0
   status: 1
   xfbml: 0
-  frictionlessRequests: 1
+  frictionlessRequests: 0
   androidKeystorePath: 
   iosURLSuffix: 
   appLinkSchemes:
   - list: []
   uploadAccessToken: 
   autoLogAppEventsEnabled: 1
-  advertiserIDCollectionEnabled: 1
+  advertiserIDCollectionEnabled: 0
