@@ -4,6 +4,7 @@ public class BossController : MonoBehaviour
 {
     private Boss _bossModel;
     private StaminaSlider _staminaSlider;
+    private StaminaController _staminaController;
     private RotatingObject _rotatingObject;
 
     //Player Prefs : BossesBeaten - Побито боссов(для того что бы в начале по порядку боссов пустить)
@@ -11,7 +12,8 @@ public class BossController : MonoBehaviour
     {
         _bossModel = FindObjectOfType<Boss>();
         _staminaSlider = FindObjectOfType<StaminaSlider>();
-        _rotatingObject = FindObjectOfType<RotatingObject>();
+        _rotatingObject = FindObjectOfType<RotatingObject>(); 
+        _staminaController = FindObjectOfType<StaminaController>();
     }
     private void Start()
     {
@@ -30,6 +32,13 @@ public class BossController : MonoBehaviour
         if (_bossModel.NeedToStartBossBattle && !_bossModel.IsBossFightNow)
         {
             StartBossBattle();
+        }
+        if (_bossModel.IsBossFightNow)
+        {
+            if(_bossModel.BossMaxHp <= 0)
+            {
+                _staminaController.StartWinGame();
+            }
         }
     }
     public void StartBossBattle()

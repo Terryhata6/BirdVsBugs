@@ -1,18 +1,22 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class Boss : MonoBehaviour
 {
 	public BossVariant[] BossesVariants;
+	public Sprite[] EmojiSprites;
+	public Animator EmojiAnimator;
+	public Image Emoji;
 	public float RotationSpeedMyltiplyerForBossBattle;
 	public float StaminaMyltiplyerForBossBattle;
 	public int BossNumber;
+	public int BossMaxHp;
 	public bool NeedToStartBossBattle;
 	public bool IsBossFightNow;
 
 	private GameObject _bossModel;
 	private Animator _bossAnimator;
 	private string[] _bossesTriggerManager;
-
 
 	public void SelectRandomBossForThisLvl()
 	{
@@ -38,5 +42,19 @@ public class Boss : MonoBehaviour
 	public void BossGetDamage()
 	{
 		_bossAnimator.SetTrigger(_bossesTriggerManager[Random.Range(0, _bossesTriggerManager.Length)]);
+		EmojiAnimator.SetTrigger("Shake");
+		BossMaxHp--;
+		if(BossMaxHp == 15)
+		{
+			Emoji.sprite = EmojiSprites[0];
+		} 
+		if(BossMaxHp == 10)
+		{
+			Emoji.sprite = EmojiSprites[1];
+		} 
+		if(BossMaxHp == 5)
+		{
+			Emoji.sprite = EmojiSprites[2];
+		} 
 	}
 }

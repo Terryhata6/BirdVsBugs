@@ -13,7 +13,7 @@ public class MushroomTriggerChecker : MonoBehaviour
 	}
 	private void OnTriggerEnter(Collider other)
 	{
-		_staminaController.MakeStaminaGoOffFaster();
+		_staminaController.StartLoseGame();
 		_eatingController.EatSomething();
 		_particlesController.PlayAcidMushroomsParticles();
 		Destroy(this.gameObject);

@@ -12,7 +12,9 @@ public class StaminaSlider : MonoBehaviour
 	public Sprite PoisonedHealthBar;
 
 	[HideInInspector] public float BasicStaminaOffMultiplyer;
-
+	
+	//старая тема
+	/*
 	public void ReduceStaminaByTime()
 	{
 		BirdPower -= Time.deltaTime * (StaminaOffPower * StaminaOffMultiplyer);
@@ -29,5 +31,13 @@ public class StaminaSlider : MonoBehaviour
 		{
 			BirdPower = 50;
 		}
+	}*/
+	public void SetMaxValue(float num)
+	{
+		PowerSlider.maxValue = num;
+	}
+	public void IncreaseSliderNum()
+	{
+		PowerSlider.value++;
 	}
 }

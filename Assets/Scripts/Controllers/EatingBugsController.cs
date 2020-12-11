@@ -94,7 +94,7 @@ public class EatingBugsController : MonoBehaviour
 		{
 			_bossModel.NeedToStartBossBattle = true;
 		}
-		_staminaSlider.IncreaseStaminaByNum(_eatingModel.EnergyBySingleBug);
+		//_staminaSlider.IncreaseStaminaByNum(_eatingModel.EnergyBySingleBug);
 	}
 	public void EatSomething()
 	{
@@ -111,7 +111,7 @@ public class EatingBugsController : MonoBehaviour
 			}
 			if (!_bossModel.IsBossFightNow)
 			{
-				_staminaSlider.ReduceStaminaByNum(_eatingModel.EnergyMissClick);
+				//_staminaSlider.ReduceStaminaByNum(_eatingModel.EnergyMissClick);
 			}
 			_nothingWasEaten = false;
 		}

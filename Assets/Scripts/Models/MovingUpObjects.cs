@@ -13,7 +13,12 @@ public class MovingUpObjects : MonoBehaviour
 	public bool NeedToMoveOnlyCharacter;
 	private int MainTex = Shader.PropertyToID("_MainTex");
 
+	private StaminaSlider _slider;
 
+	private void Start()
+	{
+		_slider = FindObjectOfType<StaminaSlider>();
+	}
 	public void MoveBirdUpAtStart()
 	{
 		for (int i = 1; i <= TimeLenghtOfStartMovingUp; i++)
@@ -27,6 +32,7 @@ public class MovingUpObjects : MonoBehaviour
 	}
 	public void MoveObjectsUp()
 	{
+		_slider.IncreaseSliderNum();
 		for (int i = 1; i <= TimeLenghtOfMovingUp; i++)
 		{
 			Invoke("MoveUpALittle", i * 0.01f);
