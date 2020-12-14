@@ -1,9 +1,12 @@
 ﻿using UnityEngine;
+using TapticPlugin;
 
 public class EatingBugsController : MonoBehaviour
 {
 	public int[] BugsOnLvl;
 
+
+	private SampleUI _sampleUI;
 	private InputController _inputController;
 	private EatingModel _eatingModel;
 	private MovingUpObjects _movingUpObjects;
@@ -28,6 +31,7 @@ public class EatingBugsController : MonoBehaviour
 		_soundController = FindObjectOfType<SoundController>();
 		_bossModel = FindObjectOfType<Boss>();
 		_coins = FindObjectOfType<Coins>();
+		_sampleUI = FindObjectOfType<SampleUI>();
 	}
 	private void Start()
 	{
@@ -60,7 +64,7 @@ public class EatingBugsController : MonoBehaviour
 		}
 		if (_eatingModel.BiteWasMade && !_bitingEnded)
 		{
-			ReduceStamina();
+			BiteTree();
 		}
 	}
 	private void FixedUpdate()
@@ -72,6 +76,7 @@ public class EatingBugsController : MonoBehaviour
 	}
 	public void EatBug(GameObject BugObject)
 	{
+		_sampleUI.OnImpactClick(2);
 		_coins.AddCoin();
 		Destroy(BugObject);
 		_nothingWasEaten = false;
@@ -98,20 +103,23 @@ public class EatingBugsController : MonoBehaviour
 	}
 	public void EatSomething()
 	{
+		_sampleUI.OnImpactClick(1);
 		_soundController.PlayEatSomethingSound();
 		_nothingWasEaten = false;
 	}
-	private void ReduceStamina()
+	private void BiteTree()
 	{
 		if (_nothingWasEaten)
 		{
 			if (!_bossModel.IsBossFightNow)
 			{
+				_sampleUI.OnImpactClick(0);
 				_soundController.PlayHitTreeSound();
 			}
-			if (!_bossModel.IsBossFightNow)
+			if (_bossModel.IsBossFightNow)
 			{
 				//_staminaSlider.ReduceStaminaByNum(_eatingModel.EnergyMissClick);
+				_sampleUI.OnImpactClick(2);
 			}
 			_nothingWasEaten = false;
 		}
