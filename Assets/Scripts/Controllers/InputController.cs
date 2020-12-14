@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using TapticPlugin;
 
 public class InputController : MonoBehaviour
 {
@@ -7,10 +8,12 @@ public class InputController : MonoBehaviour
     public bool InputStarted = false;
     private Camera CameraForInput;
     private Touch touch;
+    private SampleUI _sampleUI;
 
     private void Start()
     {
         CameraForInput = FindObjectOfType<Camera>();
+        _sampleUI = FindObjectOfType<SampleUI>();
         TouchPosition = new Vector3(0, 0);
     }
 
@@ -21,10 +24,11 @@ public class InputController : MonoBehaviour
             if (Input.touchCount > 0 && !InputStarted)
             {
                 touch = Input.GetTouch(i - 1);
-                if (touch.phase == TouchPhase.Began )
+                if (touch.phase == TouchPhase.Began)
                 {
                     InputStarted = true;
                     TouchPosition = CameraForInput.ScreenToWorldPoint(touch.position);
+                    _sampleUI.OnImpactClick(2);
                 }
                 else if (touch.phase == TouchPhase.Moved)
                 {
